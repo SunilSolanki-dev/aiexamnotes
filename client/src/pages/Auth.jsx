@@ -3,19 +3,23 @@ import { motion, scale } from "motion/react";
 import { FcGoogle } from "react-icons/fc";
 import { signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '../utils/firebase';
+import axios from 'axios';
+import { serverUrl } from '../app';
+import { useDispatch } from 'react-redux';
+import { setUserData } from '../redux/userSlice';
 
 function Auth() {
-
-  const handleGoogleAuth = async()=>{
-    console.log('click')
+ const dispatch = useDispatch();
+  const handleGoogleAuth = async () => {
     try {
-      const response = await signInWithPopup(auth,provider);
+      const response = await signInWithPopup(auth, provider);
       const User = response.user;
-      const name= User.displayName;
-      const email=User.email;
-      console.log('response', response)
+      const name = User.displayName;
+      const email = User.email;
+      const result = await axios.post(serverUrl + "/api/auth/google", { name, email }, { withCredentials: true });
+      dispatch(setUserData(result.data));
     } catch (error) {
-      
+       
     }
   }
   return (
@@ -41,7 +45,7 @@ function Auth() {
             Unlock Smart  <br /> AI Notes
           </h1>
           <motion.button
-          onClick={handleGoogleAuth}
+            onClick={handleGoogleAuth}
             whileHover={{
               y: -10,
               rotateX: 18,
@@ -66,11 +70,11 @@ function Auth() {
 
         {/* right content */}
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-8'>
-          <Feature icon="🎁" title="50 Free Credits" des="Start with 50 credits to generate notes without paying"/>
-          <Feature icon="📋" title="Exam Notes" des="Start with 50 credits to generate notes without paying"/>
-          <Feature icon="📂" title="Project Nots" des="Start with 50 credits to generate notes without paying"/>
-          <Feature icon="📊" title="Charts & Graphs" des="Start with 50 credits to generate notes without paying"/>
-          <Feature icon="⤵️" title="Free PDF Download" des="Start with 50 credits to generate notes without paying"/>
+          <Feature icon="🎁" title="50 Free Credits" des="Start with 50 credits to generate notes without paying" />
+          <Feature icon="📋" title="Exam Notes" des="Start with 50 credits to generate notes without paying" />
+          <Feature icon="📂" title="Project Nots" des="Start with 50 credits to generate notes without paying" />
+          <Feature icon="📊" title="Charts & Graphs" des="Start with 50 credits to generate notes without paying" />
+          <Feature icon="⤵️" title="Free PDF Download" des="Start with 50 credits to generate notes without paying" />
         </div>
 
       </main>
@@ -92,10 +96,10 @@ const Feature = ({ icon, title, des }) => {
       className='relative rounded-2xl p-6 bg-gradient-to-br from-black/90 via-black/80 to-black/90 backdrop-blur-2xl border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.7)] text-white'
       style={{ transformStyle: "preserve-3d" }}
     >
-        <div className='relative z-10' style={{ transform: "translateZ(30px)" }}>
-          <div className='text-4xl mb-3'>{icon}</div>
-          <h3 className='text-lg font-semibold mb-2'>{title}</h3>
-          <p className='text-grey-300 text-sm leading-relaxed'>{des}</p>
+      <div className='relative z-10' style={{ transform: "translateZ(30px)" }}>
+        <div className='text-4xl mb-3'>{icon}</div>
+        <h3 className='text-lg font-semibold mb-2'>{title}</h3>
+        <p className='text-grey-300 text-sm leading-relaxed'>{des}</p>
 
       </div>
 
