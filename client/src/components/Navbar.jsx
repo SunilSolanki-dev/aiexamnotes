@@ -34,7 +34,7 @@ function Navbar() {
             initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.7 }}
-            className='relative z-20 mx-6 mt-6 rounded-2xl bg-gradient-to-br from-black/90 via-black/80 to-black/90  backdrop-blur-2xl border border-white/10 shadow-[0_22px_55px_rbga(0,0,0,0.75)] flex items-center justify-between px-8 py-4'>
+            className='relative z-20 mx-3 sm:mx-6 mt-3 sm:mt-6 rounded-2xl bg-gradient-to-br from-black/90 via-black/80 to-black/90  backdrop-blur-2xl border border-white/10 shadow-[0_22px_55px_rgba(0,0,0,0.75)] flex items-center justify-between px-4 sm:px-8 py-3 sm:py-4'>
 
             <div className='flex items-center gap-3'>
                 <img src={logo} alt="logo" className='w-9 h-9' />
@@ -42,7 +42,7 @@ function Navbar() {
                     ExamNotes <span className='text-gray-400'>AI</span>
                 </span>
             </div>
-            <div className='flex item-center gap-6 relative'>
+            <div className='flex item-center gap-3 sm:gap-6 relative'>
                 <div className='relative'>
 
                     <motion.div
@@ -68,7 +68,7 @@ function Navbar() {
                                 animate={{ opacity: 1, y: 10, scale: 1 }}
                                 exit={{ opacity: 0, y: -10, scale: 0.95 }}
                                 transition={{ duration: 0.4 }}
-                                className='absolute right-2 mt-4 w-64 rounded-2xl bg-black/90 backdrop-blur-xl border border-white/10 shadow-[0_25px_60px_rbga(0,0,0,0.7)] p-4 text-white '>
+                                className='fixed inset-x-4 top-20 sm:absolute sm:inset-x-auto sm:top-auto sm:right-2 sm:mt-4 w-auto sm:w-64 rounded-2xl bg-black/90 backdrop-blur-xl border border-white/10 shadow-[0_25px_60px_rgba(0,0,0,0.7)] p-4 text-white '>
                                 <h4 className='font-semibold mb-2'>Buy Credits</h4>
                                 <p className='text-sm text-gray-300 mb-4'>Use credits to genrate AI notes,diagrams & PDFs</p>
                                 <button onClick={() => {setShowCredit(false),navigate('/pricing')}} className='w-full py-2 rounded-lg bg-gradient-to-br from-white to-gray-200 text-black font-semiblod  hover:opacity-90'>Buy more Credits</button>
@@ -95,7 +95,7 @@ function Navbar() {
                                 animate={{ opacity: 1, y: 10, scale: 1 }}
                                 exit={{ opacity: 0, y: -10, scale: 0.95 }}
                                 transition={{ duration: 0.4 }}
-                                className='absolute right-0 mt-4 w-52 rounded-2xl bg-black/90 backdrop-blur-xl border border-white/10 shadow-[0_25px_60px_rbga(0,0,0,0.7)] p-4 text-white '>
+                                className='absolute right-0 mt-4 w-52 max-w-[calc(100vw-2rem)] rounded-2xl bg-black/90 backdrop-blur-xl border border-white/10 shadow-[0_25px_60px_rgba(0,0,0,0.7)] p-4 text-white '>
 
                                 <MenuItem text="History" onClick={() => {setShowProfile(false);navigate("/history")}} />
                                 <div className='h-px bg-white/10 mx-3' />
