@@ -7,7 +7,8 @@ export const getCurrentUser = async (dispatch) => {
         const result = await axios.get(serverUrl + '/api/user/currentUser', { withCredentials: true })
         dispatch(setUserData(result.data))
     } catch (error) {
-        console.log('error', error)
+        // No valid cookie / expired token / network failure — treat as logged out.
+        dispatch(setUserData(null))
     }
 }
 

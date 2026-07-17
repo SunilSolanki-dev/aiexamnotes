@@ -3,7 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Auth from './pages/Auth'
 import { getCurrentUser } from './services/api'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import History from './pages/History'
 import Notes from './pages/Notes'
@@ -14,11 +14,17 @@ export const serverUrl = "https://aiexamnotesserver-gnvx.onrender.com"
 
 export function App() {
   const dispatch = useDispatch();
+  const [authChecked, setAuthChecked] = useState(false);
 
   useEffect(() => {
-    getCurrentUser(dispatch)
+    getCurrentUser(dispatch).finally(() => setAuthChecked(true))
   }, [dispatch])
   const { userData } = useSelector(state => state.user);
+
+  if (!authChecked) {
+    return null;
+  }
+
   return (
     <div>
       <Routes>
