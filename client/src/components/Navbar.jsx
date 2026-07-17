@@ -69,7 +69,7 @@ function Navbar() {
                                 className='fixed inset-x-4 top-20 sm:absolute sm:inset-x-auto sm:top-auto sm:right-2 sm:mt-4 w-auto sm:w-64 rounded-2xl bg-black/90 backdrop-blur-xl border border-white/10 shadow-[0_25px_60px_rgba(0,0,0,0.7)] p-4 text-white '>
                                 <h4 className='font-semibold mb-2'>Buy Credits</h4>
                                 <p className='text-sm text-gray-300 mb-4'>Use credits to genrate AI notes,diagrams & PDFs</p>
-                                <button onClick={() => {setShowCredit(false),navigate('/pricing')}} className='w-full py-2 rounded-lg bg-gradient-to-br from-white to-gray-200 text-black font-semiblod  hover:opacity-90'>Buy more Credits</button>
+                                <button onClick={() => {setShowCredit(false),navigate('/pricing')}} className='w-full py-2 rounded-lg bg-gradient-to-br from-white to-gray-200 text-black font-semiblod  hover:opacity-90 cursor-pointer'>Buy more Credits</button>
 
 
                             </motion.div>
@@ -113,7 +113,7 @@ function Navbar() {
 
 function MenuItem({ onClick, text, red }) {
     return (
-        <div onClick={onClick} className={`w-full text-left px-5 py-3 text-sm transition-colors rounded-lg ${red ? "text-red-400 hover:bg-red-500/10" : "text-grey-200 hover:bg-white/10"}`}>
+        <div onClick={onClick} className={`w-full text-left px-5 py-3 text-sm transition-colors rounded-lg cursor-pointer ${red ? "text-red-400 hover:bg-red-500/10" : "text-grey-200 hover:bg-white/10"}`}>
             {text}
         </div>
     )

@@ -54,7 +54,7 @@ function Auth() {
             }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 200, damping: 18 }}
-            className='mt-10 px-10 py-3 rounded-xl flex itme-center gap-3 bg-gradient-to-br from-black/90 via-black/80 to-black/90 border border-white/10 text-white font-semibold text-lg shadow-[0_25px_60px_rgba(0,0,0,0.7)]'>
+            className='cursor-pointer mt-10 px-10 py-3 rounded-xl flex itme-center gap-3 bg-gradient-to-br from-black/90 via-black/80 to-black/90 border border-white/10 text-white font-semibold text-lg shadow-[0_25px_60px_rgba(0,0,0,0.7)]'>
 
             <FcGoogle size={22} /> Continue with Google
 

@@ -55,7 +55,7 @@ function Notes() {
           <button
             onClick={() => navigate("/history")
             }
-            className='px-4 py-3 rounded-full text-sm font-medium bg-white/10 border border-white/10 text-white hover:bg-white/20 transition flex items-center gap-2'>
+            className='cursor-pointer px-4 py-3 rounded-full text-sm font-medium bg-white/10 border border-white/10 text-white hover:bg-white/20 transition flex items-center gap-2'>
             📋Your Notes
           </button>
         </div>

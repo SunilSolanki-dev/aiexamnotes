@@ -28,18 +28,25 @@ function History() {
     }
   }, []);
 
-  useEffect(() => {
-    const fetchNotes = async () => {
-      try {
-        const res = await getAllNotes();
-        setNotes(Array.isArray(res.notes) ? res.notes : []);
-      } catch (error) {
-        console.log('error', error);
-        setListError("Failed to load your notes");
-      } finally {
-        setLoadingList(false);
+  const fetchNotes = async () => {
+    setLoadingList(true);
+    setListError("");
+    try {
+      const res = await getAllNotes();
+      setNotes(Array.isArray(res.notes) ? res.notes : []);
+    } catch (error) {
+      console.log('error', error);
+      if (error?.response?.status === 401) {
+        navigate("/auth");
+        return;
       }
-    };
+      setListError("Something went wrong loading your notes. Please try again.");
+    } finally {
+      setLoadingList(false);
+    }
+  };
+
+  useEffect(() => {
     fetchNotes();
   }, []);
 
@@ -106,7 +113,7 @@ function History() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsSidebarOpen(false)}
-              className='fixed inset-0 z-30 bg-black/50 lg:hidden'
+              className='fixed inset-0 z-30 bg-black/50 lg:hidden cursor-pointer'
             />
           )}
         </AnimatePresence>
@@ -126,9 +133,29 @@ function History() {
               <h2 className='text-lg font-semibold text-white mb-4'>Your Notes</h2>
 
               {loadingList && <p className='text-sm text-gray-400'>Loading notes...</p>}
-              {!loadingList && listError && <p className='text-sm text-red-400'>{listError}</p>}
+
+              {!loadingList && listError && (
+                <div className='text-sm'>
+                  <p className='text-red-400 mb-3'>{listError}</p>
+                  <button
+                    onClick={fetchNotes}
+                    className='cursor-pointer px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-white hover:bg-white/20 transition'
+                  >
+                    Retry
+                  </button>
+                </div>
+              )}
+
               {!loadingList && !listError && notes.length === 0 && (
-                <p className='text-sm text-gray-400'>No notes created yet</p>
+                <div className='text-sm text-gray-400'>
+                  <p className='mb-3'>No notes created yet</p>
+                  <button
+                    onClick={() => navigate("/notes")}
+                    className='cursor-pointer px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-white hover:bg-white/20 transition'
+                  >
+                    📝 Create your first note
+                  </button>
+                </div>
               )}
 
               <ul className='space-y-3'>
