@@ -39,6 +39,6 @@ export const gernrateGeminiResponse = async (prompt) => {
         return JSON.parse(cleanText);
     } catch (error) {
       console.error("Gemini Fetch Error:", error.message);
-      throw new Error("Gemini API fetch failed")
+      throw new Error(`Gemini API fetch failed: ${error.message}`)
     }
 }
