@@ -14,14 +14,12 @@ function Footer() {
      const dispatch = useDispatch();
 
     const handleSignOut = async () => {
-        console.log('545455')
         try {
             const response = await axios.post(serverUrl + "/api/auth/logout", {}, { withCredentials: true });
             if (response) {
                 dispatch(setUserData(null))
                 navigate("/auth")
             }
-            console.log('response', response)
         } catch (error) {
             console.log('error', error)
         }

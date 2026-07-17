@@ -68,15 +68,23 @@ If Revision Mode is OFF
 - Maximum 3 lines per paragraph.
 - Include examples wherever possible.
 
+SUB TOPICS
+
+Identify 3 to 9 sub-topics for this topic and group their TITLES ONLY
+(short strings, no explanation) by exam priority into exactly three
+buckets, ordered least to most important:
+
+"⭐" = Very Important
+"⭐⭐" = Important
+"⭐⭐⭐" = Frequently Asked
+
+Every sub-topic must appear in exactly one bucket. A bucket with no
+sub-topics must still be present as an empty array.
+
 IMPORTANCE
 
-Every sub-topic must have one importance level.
-
-⭐ = Very Important
-
-⭐⭐ = Important
-
-⭐⭐⭐ = Frequently Asked
+Return one overall exam-importance rating for the whole topic as a
+star string, one of "⭐", "⭐⭐", "⭐⭐⭐".
 
 DIAGRAM RULES
 
@@ -143,15 +151,16 @@ OUTPUT FORMAT
 {
 "title":"",
 
-"subTopics":[
-{
-"title":"",
-"importance":"⭐",
-"notes":"",
-"revisionPoints":[
-"",
-""
-],
+"subTopics":{
+"⭐":["",""],
+"⭐⭐":["",""],
+"⭐⭐⭐":["",""]
+},
+
+"importance":"⭐⭐⭐",
+
+"notes":"# Markdown formatted detailed notes for the whole topic, using headings (##) per sub-topic, short paragraphs and bullet points",
+
 "questions":{
 "short":[
 "",
@@ -161,8 +170,11 @@ OUTPUT FORMAT
 "",
 ""
 ]
-}
-}
+},
+
+"revisionPoints":[
+"",
+""
 ],
 
 "diagram":{

@@ -6,11 +6,19 @@ import cookieParser from 'cookie-parser';
 import cors from "cors"
 import userRouter from './routes/user.route.js';
 import notesRouter from './routes/genrate.route.js';
+import creditRouter from './routes/credits.route.js';
+import { stripeWebhook } from './controllers/credits.controller.js';
 
 dotenv.config();
 
 const PORT = process.env.PORT || 5000;
 const app = express();
+
+app.post(
+  "/api/credits/webhook",
+  express.raw({ type: "application/json" }),
+  stripeWebhook
+);
 
 app.use(express.json());
 app.use(cookieParser());
@@ -28,6 +36,7 @@ app.get('/', (req, res) => {
 app.use("/api/auth",authRouter)
 app.use('/api/user',userRouter)
 app.use('/api/notes',notesRouter)
+app.use('/api/credits',creditRouter)
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);

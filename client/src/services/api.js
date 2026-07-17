@@ -12,12 +12,21 @@ export const getCurrentUser = async (dispatch) => {
 }
 
 
-export const generateNotes= async (payload)=>{
-  try {
-    const result = await axios.post(serverUrl+ '/api/notes/generate-notes' ,payload,{withCredentials:true});
-    console.log('result', result);
-    return result.data;
-  } catch (error) {
-    console.log('error', error)
-  }
+export const generateNotes = async (payload) => {
+  const result = await axios.post(serverUrl + '/api/notes/generate-notes', payload, { withCredentials: true });
+  return result.data;
+}
+
+export const getAllNotes = async () => {
+  const result = await axios.get(serverUrl + '/api/notes/getnotes', { withCredentials: true });
+  return result.data;
+}
+export const getSingleNote = async (noteId) => {
+  const result = await axios.get(serverUrl + `/api/notes/${noteId}`, { withCredentials: true });
+  return result.data;
+}
+
+export const createCreditsOrder = async (amount) => {
+  const result = await axios.post(serverUrl + '/api/credits/order', { amount }, { withCredentials: true });
+  return result.data;
 }

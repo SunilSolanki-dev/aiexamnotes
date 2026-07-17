@@ -2,7 +2,6 @@ import UserModel from "../models/user.model.js";
 import { getToekn } from "../utils/token.js";
 
 export const googleAuth=async(req,res)=>{
-  console.log('req',  req.body)
   try {
       const {name,email} = req.body || {};
 

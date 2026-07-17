@@ -11,7 +11,7 @@ const isAuth = async (req, res, next) => {
             return res.status(400).json({ message: "user doesn't found" })
         }
         req.userId = verifyToken.userId;
-        next()
+        next();
     } catch (error) {
         return res.status(401).json({ message: "Unauthorized" })
     }
