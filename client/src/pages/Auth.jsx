@@ -29,7 +29,7 @@ function Auth() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.7 }}
         className='max-w-7xl mx-auto mt-8 rounded-2xl bg-black/80 backdrop:-blur-xl border border-white/10 px-8 py-6 shadow-[0_20px_45px_rgba(0,0,0,0.6)]'>
-        <h1 className='texx-2xl font-bold bg-linear-to-r from-white via-gray-300 to-white bg-clip-text text-transparent'>ExamNotes AI</h1>
+        <h1 className='texx-2xl font-bold bg-linear-to-r from-white via-gray-300 to-white bg-clip-text text-transparent'>Sagewell AI</h1>
         <p className='text-sm text-gray-300 mt-1'>Ai-powered exam-oriented notes & revision</p>
 
       </motion.header>

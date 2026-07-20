@@ -52,10 +52,10 @@ function Footer() {
                             '
                             style={{ textShadow: "0 6px 18px rgba(0,0,0,0.4)" }}
                         >
-                            ExamNotes <span className='text-gray-400'>AI</span>
+                            Sagewell <span className='text-gray-400'>AI</span>
                         </span>
                     </div>
-                    <p className='text-gray-400 text-sm leading-relaxed'>ExamNotes AI helps students generate exam-focused notes, revision material,diagrams,and printable PDFs using AI.</p>
+                    <p className='text-gray-400 text-sm leading-relaxed'>Sagewell AI helps students generate exam-focused notes, revision material,diagrams,and printable PDFs using AI.</p>
 
                 </motion.div>
                 <div className='text-center'>
@@ -78,14 +78,14 @@ function Footer() {
 
                         </li>
                         <li onClick={handleSignOut} className='cursor-pointer text-red-400 hover:text-white transition-colors'>SignOut</li>
-                        <li className='text-gray-300 hover:text-white transition-colors'>Support@examnotes.com</li>
+                        <li className='text-gray-300 hover:text-white transition-colors'>Support@Sagewell.com</li>
                     </ul>
 
                 </div>
             </div>
             <div className='my-6 h-px bg-white/10'/>
             <p className='text-center text-xs text-gray-500'>
-                @{new Date().getFullYear()} ExamNotes AI. All rights reserved.
+                @{new Date().getFullYear()} Sagewell AI. All rights reserved.
             </p>
 
         </motion.div>

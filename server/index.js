@@ -30,7 +30,7 @@ app.use(cors({
 }))
 
 app.get('/', (req, res) => {
-    res.json({ message: "ExamNotes AI backend running" });
+    res.json({ message: "Sagewell AI backend running" });
 })
 
 app.use("/api/auth",authRouter)

@@ -37,7 +37,7 @@ function Navbar() {
             <div className='flex items-center gap-3'>
                 <img src={logo} alt="logo" className='w-9 h-9' />
                 <span className='text-lg hidden md:block font-semibold text-white'>
-                    ExamNotes <span className='text-gray-400'>AI</span>
+                    Sagewell <span className='text-gray-400'>AI</span>
                 </span>
             </div>
             <div className='flex item-center gap-3 sm:gap-6 relative'>

@@ -30,7 +30,7 @@ function Notes() {
         <div onClick={() => navigate("/")} className='cursor-pointer' >
           <h1
             className='texx-2xl font-bold bg-linear-to-r from-white via-gray-300 
-        to-white bg-clip-text text-transparent'>ExamNotes AI</h1>
+        to-white bg-clip-text text-transparent'>Sagewell AI</h1>
           <p className='text-sm text-gray-300 mt-1'>Ai-powered exam-oriented notes & revision</p>
         </div>
         <div className='flex items-center gap-4 flex-wrap'>

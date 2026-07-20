@@ -6,7 +6,7 @@ export const buildPrompt = ({
   includeDiagram,
   includeChart,
 }) => `
-You are an expert Exam Notes AI.
+You are an expert Sagewell AI.
 
 Your ONLY job is to return VALID JSON.
 
