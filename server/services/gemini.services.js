@@ -1,4 +1,4 @@
-const gemini_url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
+const gemini_url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent";
 
 
 export const gernrateGeminiResponse = async (prompt) => {
